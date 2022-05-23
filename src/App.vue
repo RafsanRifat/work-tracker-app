@@ -10,6 +10,33 @@ export default {
   name: 'App',
   components: {
     Header_tracker
+  },
+  data(){
+    return{
+      tasks : []
+    }
+  },
+  created() {
+    this.tasks = [
+      {
+        id: 1,
+        text: 'Doctor appoinment',
+        day: '23 May 2022',
+        reminder: true
+      },
+      {
+        id: 2,
+        text: 'Have to go to market',
+        day: '24 May 2022',
+        reminder: true
+      },
+      {
+        id: 3,
+        text: 'Car repairing',
+        day: '25 May 2022',
+        reminder: false
+      }
+    ]
   }
 }
 </script>
