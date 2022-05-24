@@ -1,6 +1,6 @@
 <template>
   <div v-for=" task in tasks " v-bind:key="task.id ">
-    <Task_tracker :task="task"></Task_tracker>
+    <Task_tracker @delete-task="$emit('delete-task', task.id)" :task="task"></Task_tracker>
   </div>
 </template>
 
@@ -14,7 +14,8 @@ import Task_tracker from "@/components/Task_tracker";
     },
     components:{
       Task_tracker
-    }
+    },
+    emits: ['delete-task']
   }
 </script>
 
