@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     onClick() {
-      console.log("Hi Vue")
+      this.$emit('toggle-add-task')
     }
   }
 }
