@@ -1,7 +1,8 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button_tracker @toggle-add-task="$emit('toggle-add-task')" text="Add Task" color="Green"></Button_tracker>
+    <Button_tracker @toggle-add-task="$emit('toggle-add-task')"   :text="showAddTask ? 'Close' : 'Add Task'"
+                    :color="showAddTask ? 'red' : 'green'"></Button_tracker>
   </header>
 </template>
 
@@ -17,6 +18,7 @@ export default {
 
   props: {
     title: String,
+    showAddTask: Boolean,
   }
 
 }
