@@ -23,6 +23,18 @@
       "text": "ukukuk",
       "day": "yukuykuyk",
       "reminder": true
+    },
+    {
+      "text": "yujytjytjty",
+      "day": "jtyjtyjytj",
+      "reminder": false,
+      "id": 8285
+    },
+    {
+      "text": "hujmkhjmhjm",
+      "day": "hjmjhm",
+      "reminder": true,
+      "id": 8286
     }
   ]
 }

@@ -5,6 +5,7 @@
       <AddTask @add-task="addTask"></AddTask>
     </div>
     <Tasks_tracker @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"></Tasks_tracker>
+    <Footer_task></Footer_task>
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import Header_tracker from "@/components/Header_tracker";
 import Tasks_tracker from "@/components/Tasks_tracker";
 import AddTask from "@/components/AddTask";
+import Footer_task from  "@/components/Footer_task";
 
 
 
@@ -20,7 +22,8 @@ export default {
   components: {
     Header_tracker,
     Tasks_tracker,
-    AddTask
+    AddTask,
+    Footer_task,
   },
   data() {
     return {
@@ -46,9 +49,14 @@ export default {
       // this .tasks.push(data)
 
     },
-    deleteTask(id) {
-      if (confirm("Are you sure to delete this item?")) {
-        this.tasks = this.tasks.filter((task) => task.id !== id)
+    async deleteTask(id) {
+      if (confirm('Are you sure?')) {
+        const res = await fetch(`api/tasks/${id}`, {
+          method: 'DELETE',
+        })
+        res.status === 200
+            ? (this.tasks = this.tasks.filter((task) => task.id !== id))
+            : alert('Error deleting task')
       }
     },
     toggleReminder(id) {
